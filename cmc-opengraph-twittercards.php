@@ -1,13 +1,12 @@
 <?php
 /*
 Plugin Name: Cross Media Cloud | Open Graph, Twitter Cards for Website
-Plugin URI: http://www.cross-media-cloud.de/wordpress/plugins/
 Description: Add Open Graph and Twitter Cards to website
-Version: 3.6
+Version: 3.6.1
 Author: Cross Media Cloud
 Author URI: http://www.cross-media-cloud.de/
 Author Email: post@cross-media-cloud.de
-License: GPL v2
+License: GPL
 Textdomain: cmc-opengraph-twittercrads
 */
 
@@ -92,7 +91,7 @@ class CrossMediaCloudOpenGraphTwitterCards {
 
 				<meta property="og:image" content="<?php echo esc_attr( get_option( 'cmc_opengraph_twittercards_metaimage' ) ); ?>">
 				<meta property="og:image:width" content="<?php echo esc_attr( apply_filters( 'cmc_opengraph_twittercards_default_metaimage_width', '250' ) ); ?>">
-				<meta property="og:image:height" content="<?php echo esc_attr(  apply_filters( 'cmc_opengraph_twittercards_default_metaimage_height', '250' ) ); ?>">
+				<meta property="og:image:height" content="<?php echo esc_attr( apply_filters( 'cmc_opengraph_twittercards_default_metaimage_height', '250' ) ); ?>">
 				<link rel="image_src" href="<?php echo esc_attr( esc_url( get_option( 'cmc_opengraph_twittercards_metaimage' ) ) ); ?>">
 
 				<?php // Twitter cards ?>
@@ -145,7 +144,7 @@ class CrossMediaCloudOpenGraphTwitterCards {
 				<?php // Twitter cards ?>
 				<meta name="twitter:card" content="<?php echo apply_filters( 'cmc_opengraph_twittercards_overwrite_cardtype', 'summary_large_image' ); ?>">
 				<meta name="twitter:image:src" content="<?php echo esc_attr( esc_url( $cmc_opengraph_twittercards_meta_thumbnail_url[0] ) ); ?>">
-				
+
 			<?php } elseif ( get_option( 'cmc_opengraph_twittercards_metaimage' ) ) {
 
 				// OpenGraph ?>
@@ -169,16 +168,18 @@ class CrossMediaCloudOpenGraphTwitterCards {
 
 			$posttags = get_the_tags( get_the_ID() );
 			if ( is_array( $posttags ) ) {
-				$posttags = array_values( $posttags );
+
+				$posttags       = array_values( $posttags );
 				$posttag_length = count( $posttags ) - 1;
 				echo '<meta name="keywords" content="';
-				foreach( $posttags as $key => $tag ) {
+				foreach ( $posttags as $key => $tag ) {
 					echo $tag->name;
 					if ( $posttag_length != $key ) {
 						echo ', ';
 					}
 				}
 				echo '">';
+
 			}
 
 			// OpenGraph Basics ?>
@@ -266,7 +267,7 @@ class CrossMediaCloudOpenGraphTwitterCards {
 
 			<?php
 			// OpenGraph
-			preg_match("/src='(.*?)'/i", get_avatar( $cmc_opengraph_twittercards_author->ID, '250', get_template_directory_uri() . '/img/gravatar-250.png', $cmc_opengraph_twittercards_author->display_name ), $cmc_opengraph_twittercards_author_avatar_url ); ?>
+			preg_match( "/src='(.*?)'/i", get_avatar( $cmc_opengraph_twittercards_author->ID, '250', get_template_directory_uri() . '/img/gravatar-250.png', $cmc_opengraph_twittercards_author->display_name ), $cmc_opengraph_twittercards_author_avatar_url ); ?>
 			<meta property="og:image" content="<?php echo esc_attr( $cmc_opengraph_twittercards_author_avatar_url[1] ); ?>">
 			<meta property="og:image:width" content="<?php echo esc_attr( apply_filters( 'cmc_opengraph_twittercards_default_metaimage_width', '250' ) ); ?>">
 			<meta property="og:image:height" content="<?php echo esc_attr( apply_filters( 'cmc_opengraph_twittercards_default_metaimage_height', '250' ) ); ?>">
@@ -280,7 +281,7 @@ class CrossMediaCloudOpenGraphTwitterCards {
 			if ( is_category() ) {
 				// save the category-object
 				$cmc_archive_category_object_array = get_the_category();
-				$cmc_archive_category_object = $cmc_archive_category_object_array[0];
+				$cmc_archive_category_object       = $cmc_archive_category_object_array[0];
 
 				// OpenGraph Basics ?>
 				<meta property="og:title" content="<?php echo esc_attr( sprintf( __( 'All posts about %s', 'cmc-opengraph-twittercrads' ), $cmc_archive_category_object->name ) ); ?>">
@@ -298,8 +299,8 @@ class CrossMediaCloudOpenGraphTwitterCards {
 				if ( 0 != strlen( $cmc_archive_category_object->description ) ) {
 					$cmc_archive_category_description = substr( strip_tags( $cmc_archive_category_object->description ), 0, apply_filters( 'cmc_opengraph_twittercards_seo_description_length', 155 ) ); ?>
 					<meta name="description" content="<?php echo esc_attr( $cmc_archive_category_description ); ?>">
-					<meta property="og:description" content="<?php echo esc_attr(  $cmc_archive_category_description ); ?>">
-					<meta property="twitter:description" content="<?php echo esc_attr(  $cmc_archive_category_description ); ?>" />
+					<meta property="og:description" content="<?php echo esc_attr( $cmc_archive_category_description ); ?>">
+					<meta property="twitter:description" content="<?php echo esc_attr( $cmc_archive_category_description ); ?>" />
 				<?php } ?>
 
 				<?php // add a logo if set
@@ -326,14 +327,14 @@ class CrossMediaCloudOpenGraphTwitterCards {
 						<meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'blogname' ) ); ?>">
 
 						<?php // output a url if set
-						if ( isset( $custom_archive_args[ 'url' ] ) ) {
+						if ( isset( $custom_archive_args['url'] ) ) {
 
 							// Make the url safe and put it out
-							$custom_archive_args[ 'url' ] = esc_url( $custom_archive_args[ 'url' ] ); ?>
-							<meta property="og:url" content="<?php echo esc_attr( $custom_archive_args[ 'url' ] ); ?>">
-							
+							$custom_archive_args['url'] = esc_url( $custom_archive_args['url'] ); ?>
+							<meta property="og:url" content="<?php echo esc_attr( $custom_archive_args['url'] ); ?>">
+
 						<?php }
-						
+
 						if ( isset( $custom_archive_args['title'] ) ) {
 
 							// Put the title out ?>
@@ -347,7 +348,7 @@ class CrossMediaCloudOpenGraphTwitterCards {
 							$custom_archive_args['description'] = substr( strip_tags( $custom_archive_args['description'] ), 0, apply_filters( 'cmc_opengraph_twittercards_seo_description_length', 155 ) ); ?>
 							<meta name="description" content="<?php echo esc_attr( $custom_archive_args['description'] ); ?>">
 							<meta property="og:description" content="<?php echo esc_attr( $custom_archive_args['description'] ); ?>">
-							
+
 						<?php }
 
 						// set the var up
@@ -410,7 +411,7 @@ class CrossMediaCloudOpenGraphTwitterCards {
 
 				<meta property="og:image" content="<?php echo esc_attr( get_option( 'cmc_opengraph_twittercards_metaimage' ) ); ?>">
 				<meta property="og:image:width" content="<?php echo esc_attr( apply_filters( 'cmc_opengraph_twittercards_default_metaimage_width', '250' ) ); ?>">
-				<meta property="og:image:height" content="<?php echo esc_attr(  apply_filters( 'cmc_opengraph_twittercards_default_metaimage_height', '250' ) ); ?>">
+				<meta property="og:image:height" content="<?php echo esc_attr( apply_filters( 'cmc_opengraph_twittercards_default_metaimage_height', '250' ) ); ?>">
 				<link rel="image_src" href="<?php echo esc_attr( esc_url( get_option( 'cmc_opengraph_twittercards_metaimage' ) ) ); ?>">
 
 				<?php // Twitter cards ?>
@@ -423,18 +424,36 @@ class CrossMediaCloudOpenGraphTwitterCards {
 	} // end cmc_add_to_head()
 
 	// START SEO Description in Adminmenu -> Genaral
-	function cmc_opengraph_twittercards_register_seoDescription () {
-		register_setting( 'general', 'cmc_opengraph_twittercards_seo_description', array( $this, 'cmc_opengraph_twittercards_validate_seoDescription' ) );
+	function cmc_opengraph_twittercards_register_seoDescription() {
+		register_setting(
+			'general',
+			'cmc_opengraph_twittercards_seo_description',
+			array(
+				$this,
+				'cmc_opengraph_twittercards_validate_seoDescription',
+			)
+		);
 
-		add_settings_field( 'cmc_opengraph_twittercards_seo_description', __( 'SEO Description', 'cmc-opengraph-twittercrads' ), array( $this, 'cmc_opengraph_twittercards_formFields_seoDescription' ), 'general', 'default' );
+		add_settings_field(
+			'cmc_opengraph_twittercards_seo_description',
+			__( 'SEO Description', 'cmc-opengraph-twittercrads' ),
+			array(
+				$this,
+				'cmc_opengraph_twittercards_formFields_seoDescription',
+			),
+			'general',
+			'default'
+		);
 
 	}
+
 	function cmc_opengraph_twittercards_formFields_seoDescription() {
 		// echo the field ?>
 		<textarea id="cmc_opengraph_twittercards_seo_description" name="cmc_opengraph_twittercards_seo_description" cols="60" rows="5" maxlength="250"><?php echo esc_attr( get_option( 'cmc_opengraph_twittercards_seo_description' ) ); ?></textarea>
 		<p class="description"><?php _e( 'Will be displayed on the Site and as Descriptions in Sozial Networks', 'cmc-opengraph-twittercrads' ); ?></p>
 	<?php }
-	function cmc_opengraph_twittercards_validate_seoDescription ( $input ) {
+
+	function cmc_opengraph_twittercards_validate_seoDescription( $input ) {
 		// make it safe
 		$valid = substr( trim( strip_tags( $input ) ), 0, 250 );
 		// Leave a message
@@ -446,24 +465,44 @@ class CrossMediaCloudOpenGraphTwitterCards {
 				'updated' // type of message
 			);
 		}
+
 		// return it
 		return $valid;
 	}
 	// END SEO Description Text-Field in Adminmenu -> Genaral
 
 	// START SEO Title in Adminmenu -> Genaral
-	function cmc_opengraph_twittercards_register_seoTitle () {
-		register_setting( 'general', 'cmc_opengraph_twittercards_seo_title', array( $this, 'cmc_opengraph_twittercards_validate_seoTitle' ) );
+	function cmc_opengraph_twittercards_register_seoTitle() {
 
-		add_settings_field( 'cmc_opengraph_twittercards_seo_title', __( 'SEO Title Extension', 'cmc-opengraph-twittercrads' ), array( $this, 'cmc_opengraph_twittercards_formFields_seoTitle' ), 'general', 'default' );
+		register_setting(
+			'general',
+			'cmc_opengraph_twittercards_seo_title',
+			array(
+				$this,
+				'cmc_opengraph_twittercards_validate_seoTitle',
+			)
+		);
+
+		add_settings_field(
+			'cmc_opengraph_twittercards_seo_title',
+			__( 'SEO Title Extension', 'cmc-opengraph-twittercrads' ),
+			array(
+				$this,
+				'cmc_opengraph_twittercards_formFields_seoTitle',
+			),
+			'general',
+			'default'
+		);
 
 	}
+
 	function cmc_opengraph_twittercards_formFields_seoTitle() {
 		// echo the field ?>
 		<input id="cmc_opengraph_twittercards_seo_title" name="cmc_opengraph_twittercards_seo_title" class="regular-text" type="text" value="<?php echo esc_attr( get_option( 'cmc_opengraph_twittercards_seo_title' ) ); ?>">
 		<p class="description"><?php _e( 'Some SEO Optimisation', 'cmc-opengraph-twittercrads' ); ?></p>
 	<?php }
-	function cmc_opengraph_twittercards_validate_seoTitle ( $input ) {
+
+	function cmc_opengraph_twittercards_validate_seoTitle( $input ) {
 		// make it safe
 		$valid = trim( strip_tags( $input ) );
 		// Leave a message
@@ -475,24 +514,43 @@ class CrossMediaCloudOpenGraphTwitterCards {
 				'updated' // type of message
 			);
 		}
+
 		// return it
 		return $valid;
 	}
 	// END SEO Title Text-Field in Adminmenu -> Genaral
 
 	// START G+ ID for page-owner in Adminmenu -> Genaral
-	function cmc_opengraph_twittercards_register_publisher_gplus_id () {
-		register_setting( 'general', 'cmc_opengraph_twittercards_publisher_gplus_id', array( $this, 'cmc_opengraph_twittercards_validate_publisher_gplus_id' ) );
+	function cmc_opengraph_twittercards_register_publisher_gplus_id() {
+		register_setting(
+			'general',
+			'cmc_opengraph_twittercards_publisher_gplus_id',
+			array(
+				$this,
+				'cmc_opengraph_twittercards_validate_publisher_gplus_id',
+			)
+		);
 
-		add_settings_field( 'cmc_opengraph_twittercards_publisher_gplus_id', __( 'Publisher G+ ID', 'cmc-opengraph-twittercrads' ), array( $this, 'cmc_opengraph_twittercards_formFields_publisher_gplus_id' ), 'general', 'default' );
+		add_settings_field(
+			'cmc_opengraph_twittercards_publisher_gplus_id',
+			__( 'Publisher G+ ID', 'cmc-opengraph-twittercrads' ),
+			array(
+				$this,
+				'cmc_opengraph_twittercards_formFields_publisher_gplus_id',
+			),
+			'general',
+			'default'
+		);
 
 	}
+
 	function cmc_opengraph_twittercards_formFields_publisher_gplus_id() {
 		// echo the field ?>
 		<input id="cmc_opengraph_twittercards_publisher_gplus_id" name="cmc_opengraph_twittercards_publisher_gplus_id" class="regular-text" type="text" value="<?php echo esc_attr( get_option( 'cmc_opengraph_twittercards_publisher_gplus_id' ) ); ?>">
 		<p class="description"><?php _e( 'Enter the G+ ID of the Publisher of this site. Just the long number', 'cmc-opengraph-twittercrads' ); ?></p>
 	<?php }
-	function cmc_opengraph_twittercards_validate_publisher_gplus_id ( $input ) {
+
+	function cmc_opengraph_twittercards_validate_publisher_gplus_id( $input ) {
 		// make it safe
 		$valid = sanitize_text_field( $input );
 		// Leave a message
@@ -504,24 +562,43 @@ class CrossMediaCloudOpenGraphTwitterCards {
 				'updated' // type of message
 			);
 		}
+
 		// return it
 		return $valid;
 	}
 	// END G+ ID for page-owner in Adminmenu -> Genaral
 
 	// START Twitter account for page-owner in Adminmenu -> Genaral
-	function cmc_opengraph_twittercards_register_publisher_twitter_account () {
-		register_setting( 'general', 'cmc_opengraph_twittercards_publisher_twitter_account', array( $this, 'cmc_opengraph_twittercards_validate_publisher_twitter_account' ) );
+	function cmc_opengraph_twittercards_register_publisher_twitter_account() {
+		register_setting(
+			'general',
+			'cmc_opengraph_twittercards_publisher_twitter_account',
+			array(
+				$this,
+				'cmc_opengraph_twittercards_validate_publisher_twitter_account',
+			)
+		);
 
-		add_settings_field( 'cmc_opengraph_twittercards_publisher_twitter_account', __( 'Twitter-Account', 'cmc-opengraph-twittercrads' ), array( $this, 'cmc_opengraph_twittercards_formFields_publisher_twitter_account' ), 'general', 'default' );
+		add_settings_field(
+			'cmc_opengraph_twittercards_publisher_twitter_account',
+			__( 'Twitter-Account', 'cmc-opengraph-twittercrads' ),
+			array(
+				$this,
+				'cmc_opengraph_twittercards_formFields_publisher_twitter_account',
+			),
+			'general',
+			'default'
+		);
 
 	}
+
 	function cmc_opengraph_twittercards_formFields_publisher_twitter_account() {
 		// echo the field ?>
 		<input id="cmc_opengraph_twittercards_publisher_twitter_account" name="cmc_opengraph_twittercards_publisher_twitter_account" class="regular-text" type="text" value="<?php echo esc_attr( get_option( 'cmc_opengraph_twittercards_publisher_twitter_account' ) ); ?>">
 		<p class="description"><?php _e( 'Enter the Twitter-Account of the Publisher of this site. Without the @', 'cmc-opengraph-twittercrads' ); ?></p>
 	<?php }
-	function cmc_opengraph_twittercards_validate_publisher_twitter_account ( $input ) {
+
+	function cmc_opengraph_twittercards_validate_publisher_twitter_account( $input ) {
 		// make it safe
 		$valid = sanitize_text_field( $input );
 		// Leave a message
@@ -533,6 +610,7 @@ class CrossMediaCloudOpenGraphTwitterCards {
 				'updated' // type of message
 			);
 		}
+
 		// return it
 		return $valid;
 	}
@@ -540,16 +618,34 @@ class CrossMediaCloudOpenGraphTwitterCards {
 
 	// START Default meta-image in Adminmenu -> Genaral
 	function cmc_opengraph_twittercards_register_metaimage() {
-		register_setting( 'general', 'cmc_opengraph_twittercards_metaimage', array( $this, 'cmc_opengraph_twittercards_validate_metaimage' ) );
+		register_setting(
+			'general',
+			'cmc_opengraph_twittercards_metaimage',
+			array(
+				$this,
+				'cmc_opengraph_twittercards_validate_metaimage',
+			)
+		);
 
-		add_settings_field( 'cmc_opengraph_twittercards_metaimage', __( 'Default Meta-Image', 'cmc-opengraph-twittercrads' ), array( $this, 'cmc_opengraph_twittercards_formFields_metaImage' ), 'general', 'default' );
+		add_settings_field(
+			'cmc_opengraph_twittercards_metaimage',
+			__( 'Default Meta-Image', 'cmc-opengraph-twittercrads' ),
+			array(
+				$this,
+				'cmc_opengraph_twittercards_formFields_metaImage',
+			),
+			'general',
+			'default'
+		);
 
 	}
+
 	function cmc_opengraph_twittercards_formFields_metaImage() {
 		// echo the field ?>
 		<input id="cmc_opengraph_twittercards_metaimage" name="cmc_opengraph_twittercards_metaimage" class="regular-text" type="text" value="<?php echo esc_attr( get_option( 'cmc_opengraph_twittercards_metaimage' ) ); ?>">
 		<p class="description"><?php _e( 'Enter URL for an default image for sozial-networks. 250x250 Px (incl. http://)', 'cmc-opengraph-twittercrads' ); ?></p>
 	<?php }
+
 	function cmc_opengraph_twittercards_validate_metaImage( $input ) {
 		// make it safe
 		$valid = esc_url( $input );
@@ -562,6 +658,7 @@ class CrossMediaCloudOpenGraphTwitterCards {
 				'updated' // type of message
 			);
 		}
+
 		// return it
 		return $valid;
 	}
@@ -624,9 +721,9 @@ class CrossMediaCloudOpenGraphTwitterCards {
 
 		// Use get_post_meta to retrieve an existing value from the database and use the value for the form ?>
 		<!--<label for="short_description">
-			<?php _e("Short Description", 'cmc-opengraph-twittercrads' ); ?>
+			<?php _e( 'Short Description', 'cmc-opengraph-twittercrads' ); ?>
 		</label>-->
-		<textarea id="short_description" name="short_description" maxlength="<?php echo apply_filters( 'cmc_opengraph_twittercards_seo_description_length', 155 );  ?>" rows="3" cols="80"><?php echo esc_html( get_post_meta( $post->ID, 'short_description', true ) ); ?></textarea>
+		<textarea id="short_description" name="short_description" maxlength="<?php echo apply_filters( 'cmc_opengraph_twittercards_seo_description_length', 155 ); ?>" rows="3" cols="80"><?php echo esc_html( get_post_meta( $post->ID, 'short_description', true ) ); ?></textarea>
 		<p><?php printf( __( 'Make a nice description with max. %s characters. Will be used for Search engines and Social Media. ', 'cmc-opengraph-twittercrads' ), apply_filters( 'cmc_opengraph_twittercards_seo_description_length', 155 ) ); ?></p>
 	<?php }
 	// END content for Meta-Box at Post-Edit-Page
@@ -640,16 +737,19 @@ class CrossMediaCloudOpenGraphTwitterCards {
 
 		// First we need to check if the current user is authorised to do this action.
 		if ( 'page' == $_POST['post_type'] ) {
-			if ( ! current_user_can( 'edit_page', $post_id ) )
+			if ( ! current_user_can( 'edit_page', $post_id ) ) {
 				return;
+			}
 		} else {
-			if ( ! current_user_can( 'edit_post', $post_id ) )
+			if ( ! current_user_can( 'edit_post', $post_id ) ) {
 				return;
+			}
 		}
 
 		// Secondly we need to check if the user intended to change this value.
-		if ( ! isset( $_POST['cmc_opengraph_twittercards_noncename'] ) || ! wp_verify_nonce( $_POST['cmc_opengraph_twittercards_noncename'], plugin_basename( __FILE__ ) ) )
+		if ( ! isset( $_POST['cmc_opengraph_twittercards_noncename'] ) || ! wp_verify_nonce( $_POST['cmc_opengraph_twittercards_noncename'], plugin_basename( __FILE__ ) ) ) {
 			return;
+		}
 
 		// Thirdly we can save the value to the database
 
@@ -657,7 +757,10 @@ class CrossMediaCloudOpenGraphTwitterCards {
 		$post_ID = $_POST['post_ID'];
 
 		//sanitize user input
-		$cmc_opengraph_twittercards_short_description = sanitize_text_field( trim( str_replace(array("\r\n", "\r"), " ", strip_tags( $_POST['short_description'] ) ) ) );
+		$cmc_opengraph_twittercards_short_description = sanitize_text_field( trim( str_replace( array(
+			"\r\n",
+			"\r",
+		), " ", strip_tags( $_POST['short_description'] ) ) ) );
 		$cmc_opengraph_twittercards_short_description = str_replace( '  ', ' ', $cmc_opengraph_twittercards_short_description );
 
 		// Do something with $cmc_opengraph_twittercards_short_description
@@ -666,8 +769,8 @@ class CrossMediaCloudOpenGraphTwitterCards {
 			delete_post_meta( $post_id, 'short_description' );
 		} else {
 			//add or update
-			add_post_meta($post_ID, 'short_description', $cmc_opengraph_twittercards_short_description, true) or
-			update_post_meta($post_ID, 'short_description', $cmc_opengraph_twittercards_short_description);
+			add_post_meta( $post_ID, 'short_description', $cmc_opengraph_twittercards_short_description, true ) or
+			update_post_meta( $post_ID, 'short_description', $cmc_opengraph_twittercards_short_description );
 		}
 	}
 	// END Save Meta-Box-Content at Post-Edit-Post
@@ -676,11 +779,11 @@ class CrossMediaCloudOpenGraphTwitterCards {
 	function cmc_opengraph_twittercards_modernize_userprofile( $user_contact ) {
 
 		/* Add user contact methods */
-		$user_contact['twitter'] = __( 'Twitter Username <span class="description">(without @)</span>', 'cmc-opengraph-twittercrads' );
-		$user_contact['facebook'] = __( 'Facebook URL <span class="description">(incl. http://)</span>', 'cmc-opengraph-twittercrads' );
+		$user_contact['twitter']    = __( 'Twitter Username <span class="description">(without @)</span>', 'cmc-opengraph-twittercrads' );
+		$user_contact['facebook']   = __( 'Facebook URL <span class="description">(incl. http://)</span>', 'cmc-opengraph-twittercrads' );
 		$user_contact['googleplus'] = __( 'Google+ ID <span class="description">(just the long number)</span>', 'cmc-opengraph-twittercrads' );
-		$user_contact['xing'] = __( 'Xing-Profil-Name <br><span class="description">(xing.com/profiles/<strong>Tom_Timsen</strong>)</span>', 'cmc-opengraph-twittercrads' );
-		$user_contact['linkedIn'] = __( 'LinkedIn URL <span class="description">(incl. http://)</span>', 'cmc-opengraph-twittercrads' );
+		$user_contact['xing']       = __( 'Xing-Profil-Name <br><span class="description">(xing.com/profiles/<strong>Tom_Timsen</strong>)</span>', 'cmc-opengraph-twittercrads' );
+		$user_contact['linkedIn']   = __( 'LinkedIn URL <span class="description">(incl. http://)</span>', 'cmc-opengraph-twittercrads' );
 
 		/* Remove user contact methods */
 		unset( $user_contact['aim'] );
@@ -698,11 +801,11 @@ class CrossMediaCloudOpenGraphTwitterCards {
 
 			// Prevent rewrite the title again if is_home is true
 			if ( is_home() ) {
-				if ( 'page' == get_option('show_on_front') ) {
+				if ( 'page' == get_option( 'show_on_front' ) ) {
 					return $title;
 				} else {
 					if ( get_option( 'cmc_opengraph_twittercards_seo_title' ) ) {
-						return $title . ' '. $sep . ' ' . get_option( 'cmc_opengraph_twittercards_seo_title' );
+						return $title . ' ' . $sep . ' ' . get_option( 'cmc_opengraph_twittercards_seo_title' );
 					} else {
 						return $title;
 					}
@@ -713,9 +816,9 @@ class CrossMediaCloudOpenGraphTwitterCards {
 
 				// Do the title for front-page
 				if ( get_option( 'cmc_opengraph_twittercards_seo_title' ) ) {
-					return $title . ' '. $sep . ' ' . get_bloginfo( 'description' ) . ' '. $sep . ' ' . get_option( 'cmc_opengraph_twittercards_seo_title' );
+					return $title . ' ' . $sep . ' ' . get_bloginfo( 'description' ) . ' ' . $sep . ' ' . get_option( 'cmc_opengraph_twittercards_seo_title' );
 				} else {
-					return $title . ' '. $sep . ' ' . get_bloginfo( 'description' );
+					return $title . ' ' . $sep . ' ' . get_bloginfo( 'description' );
 				}
 
 			} elseif ( class_exists( 'WooCommerce' ) ) {
@@ -723,15 +826,15 @@ class CrossMediaCloudOpenGraphTwitterCards {
 				// WooCommerce is active
 				if ( is_woocommerce() ) {
 					$title = str_replace( get_bloginfo( 'blogname' ), '', $title );
-					return $title . __( 'Shop', 'cmc-opengraph-twittercrads' ) . ' ' . $sep . ' ' . get_bloginfo( 'blogname' ) . ' '. $sep . ' ' . get_bloginfo( 'description' );
+					return $title . __( 'Shop', 'cmc-opengraph-twittercrads' ) . ' ' . $sep . ' ' . get_bloginfo( 'blogname' ) . ' ' . $sep . ' ' . get_bloginfo( 'description' );
 				} else {
-					return $title . ' '. $sep . ' ' . get_bloginfo( 'description' );
+					return $title . ' ' . $sep . ' ' . get_bloginfo( 'description' );
 				}
 
 			} else {
 
 				// For the rest
-				return $title . ' '. $sep . ' ' . get_bloginfo( 'description' );
+				return $title . ' ' . $sep . ' ' . get_bloginfo( 'description' );
 
 			}
 
@@ -746,4 +849,5 @@ class CrossMediaCloudOpenGraphTwitterCards {
 
 } // end class
 
+// Initial it
 $crossMediaCloudOpenGraphTwitterCards = new CrossMediaCloudOpenGraphTwitterCards();
