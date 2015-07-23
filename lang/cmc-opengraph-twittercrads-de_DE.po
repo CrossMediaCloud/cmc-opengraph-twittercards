@@ -1,0 +1,154 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Cross Media Cloud | Open Graph, Twitter Cards for Website v3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-07-23 16:20:28+0000\n"
+"Last-Translator: Cross Media Cloud <post@cross-media-cloud.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: cmc-opengraph-twittercards.php:258
+#: cmc-opengraph-twittercards.php:264
+#@ cmc-opengraph-twittercrads
+msgid "About"
+msgstr "Über"
+
+#: cmc-opengraph-twittercards.php:258
+#: cmc-opengraph-twittercards.php:264
+#@ cmc-opengraph-twittercrads
+msgid "at"
+msgstr "auf"
+
+#: cmc-opengraph-twittercards.php:435
+#@ cmc-opengraph-twittercrads
+msgid "Will be displayed on the Site and as Descriptions in Sozial Networks"
+msgstr "Wird als Beschreibung auf der Seite und in Sozialen Netzwerken benutzt."
+
+#: cmc-opengraph-twittercards.php:464
+#@ cmc-opengraph-twittercrads
+msgid "Some SEO Optimisation"
+msgstr "Etwas Suchmaschinen-Optimierung"
+
+#: cmc-opengraph-twittercards.php:493
+#@ cmc-opengraph-twittercrads
+msgid "Enter the G+ ID of the Publisher of this site. Just the long number"
+msgstr "Gebe die Google+ ID des Publishers ein. Nur die lange Nummer."
+
+#: cmc-opengraph-twittercards.php:551
+#@ cmc-opengraph-twittercrads
+msgid "Enter URL for an default image for sozial-networks. 250x250 Px (incl. http://)"
+msgstr "Gebe eine URL zu einem Standard-Bild for Sozialen Netzwerke ein. 250x250 Px (inkl. http://)"
+
+#: cmc-opengraph-twittercards.php:572
+#@ cmc-opengraph-twittercrads
+msgid "More Things about you"
+msgstr "Mehr Infos über dich"
+
+#: cmc-opengraph-twittercards.php:576
+#@ cmc-opengraph-twittercrads
+msgid "Short Bio"
+msgstr "Kurz Biografie"
+
+#: cmc-opengraph-twittercards.php:609
+#: cmc-opengraph-twittercards.php:627
+#@ cmc-opengraph-twittercrads
+msgid "Short Description"
+msgstr "Kurzbeschreibung"
+
+#: cmc-opengraph-twittercards.php:679
+#@ cmc-opengraph-twittercrads
+msgid "Twitter Username <span class=\"description\">(without @)</span>"
+msgstr "Twitter Benutzername <span class=\"description\">(without @)</span>"
+
+#: cmc-opengraph-twittercards.php:680
+#@ cmc-opengraph-twittercrads
+msgid "Facebook URL <span class=\"description\">(incl. http://)</span>"
+msgstr "Facebook URL <span class=\"description\">(inkl. http://)</span>"
+
+#: cmc-opengraph-twittercards.php:681
+#@ cmc-opengraph-twittercrads
+msgid "Google+ ID <span class=\"description\">(just the long number)</span>"
+msgstr "Google+ ID <span class=\"description\">(nur die lange nummer)</span>"
+
+#: cmc-opengraph-twittercards.php:682
+#@ cmc-opengraph-twittercrads
+msgid "Xing-Profil-Name <br><span class=\"description\">(xing.com/profiles/<strong>Tom_Timsen</strong>)</span>"
+msgstr "Xing-Profil-Name <br><span class=\"description\">(xing.com/profiles/<strong>Tom_Timsen</strong>)</span>"
+
+#: cmc-opengraph-twittercards.php:683
+#@ cmc-opengraph-twittercrads
+msgid "LinkedIn URL <span class=\"description\">(incl. http://)</span>"
+msgstr "LinkedIn URL <span class=\"description\">(inkl. http://)</span>"
+
+#: cmc-opengraph-twittercards.php:726
+#@ cmc-opengraph-twittercrads
+msgid "Shop"
+msgstr "Shop"
+
+#: cmc-opengraph-twittercards.php:458
+#@ cmc-opengraph-twittercrads
+msgid "SEO Title Extension"
+msgstr "SEO Title Erweiterung"
+
+#: cmc-opengraph-twittercards.php:487
+#@ cmc-opengraph-twittercrads
+msgid "Publisher G+ ID"
+msgstr "G+ ID des Publisher"
+
+#: cmc-opengraph-twittercards.php:545
+#@ cmc-opengraph-twittercrads
+msgid "Default Meta-Image"
+msgstr "Standard Seiten-Bild"
+
+#: cmc-opengraph-twittercards.php:429
+#@ cmc-opengraph-twittercrads
+msgid "SEO Description"
+msgstr "SEO Beschreibung"
+
+#: cmc-opengraph-twittercards.php:286
+#: cmc-opengraph-twittercards.php:291
+#, php-format
+#@ cmc-opengraph-twittercrads
+msgid "All posts about %s"
+msgstr "Alle Artikel über %s"
+
+#: cmc-opengraph-twittercards.php:142
+#@ cmc-opengraph-twittercrads
+msgid "Blog"
+msgstr "Blog"
+
+#: cmc-opengraph-twittercards.php:516
+#@ cmc-opengraph-twittercrads
+msgid "Twitter-Account"
+msgstr "Twitter-Account"
+
+#: cmc-opengraph-twittercards.php:522
+#@ cmc-opengraph-twittercrads
+msgid "Enter the Twitter-Account of the Publisher of this site. Without the @"
+msgstr "Trage den Twitter-Account dieser Webseite ein. Ohne das @-Zeichen."
+
+#: cmc-opengraph-twittercards.php:580
+#, php-format
+#@ cmc-opengraph-twittercrads
+msgid "%s charactes about you."
+msgstr "Schreibe in %s Zeichen über dich."
+
+#: cmc-opengraph-twittercards.php:630
+#, php-format
+#@ cmc-opengraph-twittercrads
+msgid "Make a nice description with max. %s characters. Will be used for Search engines and Social Media. "
+msgstr "Schreibe eine nette Beschreibung mit maximal %s Zeichen. Wird von Suchmaschinen und sozialen Netzwerken genutzt. "
+
