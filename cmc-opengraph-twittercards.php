@@ -2,7 +2,7 @@
 /*
 Plugin Name: Cross Media Cloud | Open Graph, Twitter Cards for Website
 Description: Add Open Graph and Twitter Cards to website
-Version: 3.7
+Version: 3.8
 Author: Cross Media Cloud
 Author URI: http://www.cross-media-cloud.de/
 Author Email: post@cross-media-cloud.de
@@ -75,12 +75,12 @@ class CrossMediaCloudOpenGraphTwitterCards {
 			// OpenGraph
 			$cmc_opengraph_twittercards_blog_meta_title = esc_attr( apply_filters( 'cmc_opengraph_twittercards_blog_meta_title', get_bloginfo( 'blogname' ) . ' | ' . get_bloginfo( 'description' ) ) ); ?>
 			<meta property="og:title" content="<?php echo $cmc_opengraph_twittercards_blog_meta_title; ?>">
-			<meta property="og:url" content="<?php echo esc_attr( esc_url( get_the_permalink() ) ); ?>">
+			<meta property="og:url" content="<?php echo esc_attr( esc_url( get_home_url( null, '/' ) ) ); ?>">
 			<meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'blogname' ) ); ?>">
 
 			<?php // Twitter ?>
 			<meta property="twitter:title" content="<?php echo $cmc_opengraph_twittercards_blog_meta_title; ?>" />
-			<meta property="twitter:url" content="<?php echo esc_attr( esc_url( get_permalink() ) ); ?>" />
+			<meta property="twitter:url" content="<?php echo esc_attr( esc_url( get_home_url( null, '/' ) ) ); ?>" />
 			<meta name="twitter:card" content="<?php echo apply_filters( 'cmc_opengraph_twittercards_overwrite_cardtype', 'summary' ); ?>">
 			<?php
 			if ( get_option( 'cmc_opengraph_twittercards_publisher_twitter_account' ) ) {
