@@ -2,7 +2,7 @@
 /*
 Plugin Name: Cross Media Cloud | Open Graph, Twitter Cards for Website
 Description: Add Open Graph and Twitter Cards to website
-Version: 3.6.1
+Version: 3.7
 Author: Cross Media Cloud
 Author URI: http://www.cross-media-cloud.de/
 Author Email: post@cross-media-cloud.de
@@ -183,13 +183,13 @@ class CrossMediaCloudOpenGraphTwitterCards {
 			}
 
 			// OpenGraph Basics ?>
-			<meta property="og:title" content="<?php echo esc_attr( apply_filters( 'cmc_opengraph_twittercards_singular_meta_title', get_the_title() ) ); ?>">
+			<meta property="og:title" content="<?php echo esc_attr( apply_filters( 'cmc_opengraph_twittercards_singular_meta_title', strip_tags( get_the_title() ) ) ); ?>">
 			<meta property="og:type" content="article">
 			<meta property="og:url" content="<?php echo esc_attr( esc_url( get_the_permalink() ) ); ?>">
 			<meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'blogname' ) ); ?>">
 
 			<?php // Twitter Basics ?>
-			<meta property="twitter:title" content="<?php echo esc_attr( apply_filters( 'cmc_opengraph_twittercards_singular_meta_title', get_the_title() ) ); ?>" />
+			<meta property="twitter:title" content="<?php echo esc_attr( apply_filters( 'cmc_opengraph_twittercards_singular_meta_title', strip_tags( get_the_title() ) ) ); ?>" />
 			<meta property="twitter:url" content="<?php echo esc_attr( esc_url( get_the_permalink() ) ); ?>" />
 			<?php
 			// Twitter Accounts from the author
@@ -394,12 +394,12 @@ class CrossMediaCloudOpenGraphTwitterCards {
 		} else {
 
 			// OpenGraph ?>
-			<meta property="og:title" content="<?php echo esc_attr( get_the_title() ); ?>">
+			<meta property="og:title" content="<?php echo esc_attr( strip_tags( get_the_title() ) ); ?>">
 			<meta property="og:url" content="<?php echo esc_attr( esc_url( get_the_permalink() ) ); ?>">
 			<meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'blogname' ) ); ?>">
 
 			<?php // Twitter ?>
-			<meta property="twitter:title" content="<?php echo esc_attr( get_the_title() ); ?>" />
+			<meta property="twitter:title" content="<?php echo esc_attr( strip_tags( get_the_title() ) ); ?>" />
 			<meta property="twitter:url" content="<?php echo esc_attr( esc_url( get_permalink() ) ); ?>" />
 			<meta name="twitter:card" content="<?php echo apply_filters( 'cmc_opengraph_twittercards_overwrite_cardtype', 'summary' ); ?>">
 			<?php
