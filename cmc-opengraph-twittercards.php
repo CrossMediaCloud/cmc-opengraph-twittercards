@@ -2,7 +2,7 @@
 /*
 Plugin Name: Cross Media Cloud | Open Graph, Twitter Cards for Website
 Description: Add Open Graph and Twitter Cards to website
-Version: 3.8
+Version: 3.8.1
 Author: Cross Media Cloud
 Author URI: http://www.cross-media-cloud.de/
 Author Email: post@cross-media-cloud.de
@@ -183,13 +183,13 @@ class CrossMediaCloudOpenGraphTwitterCards {
 			}
 
 			// OpenGraph Basics ?>
-			<meta property="og:title" content="<?php echo esc_attr( apply_filters( 'cmc_opengraph_twittercards_singular_meta_title', strip_tags( get_the_title() ) ) ); ?>">
+			<meta property="og:title" content="<?php echo esc_attr( apply_filters( 'cmc_opengraph_twittercards_singular_meta_title', strip_tags( get_the_title() ), get_the_ID() ) ); ?>">
 			<meta property="og:type" content="article">
 			<meta property="og:url" content="<?php echo esc_attr( esc_url( get_the_permalink() ) ); ?>">
 			<meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'blogname' ) ); ?>">
 
 			<?php // Twitter Basics ?>
-			<meta property="twitter:title" content="<?php echo esc_attr( apply_filters( 'cmc_opengraph_twittercards_singular_meta_title', strip_tags( get_the_title() ) ) ); ?>" />
+			<meta property="twitter:title" content="<?php echo esc_attr( apply_filters( 'cmc_opengraph_twittercards_singular_meta_title', strip_tags( get_the_title() ), get_the_ID() ) ); ?>" />
 			<meta property="twitter:url" content="<?php echo esc_attr( esc_url( get_the_permalink() ) ); ?>" />
 			<?php
 			// Twitter Accounts from the author
